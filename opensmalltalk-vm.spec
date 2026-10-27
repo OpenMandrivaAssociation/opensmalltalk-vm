@@ -69,7 +69,9 @@ export LIBS="-lrt"
 # Upstream builds ARM fast-bitblt with gcc. Clang miscompiles it.
 export CC=gcc
 export CXX=g++
-export CFLAGS="%{optflags} -O2 -fno-lto -fno-omit-frame-pointer -Wno-error=format-security -DNDEBUG -DDEBUGVM=0 -DCOGMTVM=0 -D_GNU_SOURCE -march=armv8-a -mtune=cortex-a72 -DUSEEVDEV -DDUAL_MAPPED_CODE_ZONE=1"
+# gcc 16 defaults to C23. PseudoTTYPlugin.h still uses empty parameter
+# lists, which C23 reads as "no arguments".
+export CFLAGS="%{optflags} -O2 -fno-lto -fno-omit-frame-pointer -Wno-error=format-security -DNDEBUG -DDEBUGVM=0 -DCOGMTVM=0 -D_GNU_SOURCE -march=armv8-a -mtune=cortex-a72 -DUSEEVDEV -DDUAL_MAPPED_CODE_ZONE=1 -std=gnu17"
 %else
 export CC=clang
 export CXX=clang++
