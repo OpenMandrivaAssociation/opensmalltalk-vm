@@ -1,0 +1,22 @@
+# External plugins for the packaged VM.
+# Bochs and Gdb simulators are omitted. GStreamer is not built.
+# Sound is ALSA and PulseAudio.
+EXTERNAL_PLUGINS = \
+MIDIPlugin \
+B3DAcceleratorPlugin \
+ClipboardExtendedPlugin \
+FileAttributesPlugin \
+Squeak3D \
+SqueakFFIPrims \
+SqueakSSL \
+LocalePlugin \
+UnicodePlugin \
+UnixOSProcessPlugin \
+UUIDPlugin \
+ImmX11Plugin \
+XDisplayControlPlugin \
+DESPlugin \
+MD5Plugin \
+SHA2Plugin \
+VectorEnginePlugin \
+PseudoTTYPlugin
